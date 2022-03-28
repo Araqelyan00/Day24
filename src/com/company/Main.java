@@ -23,16 +23,16 @@ public class Main {
     private static void printCountOfDuplications(String str) {
         int size = str.length();
         int count = 0;
-        Map<Character, Integer> map = new HashMap<>();
+        Map<Character, Boolean> map = new HashMap<>();
         for (int i = 0; i < size; i++){
             if (map.containsKey(str.charAt(i))){
-                map.put(str.charAt(i), 2);
+                map.put(str.charAt(i), true);
                 continue;
             }
-            map.put(str.charAt(i), 1);
+            map.put(str.charAt(i), false);
         }
-        for (Map.Entry<Character, Integer> entry : map.entrySet()){
-            if (entry.getValue() == 2) {
+        for (Map.Entry<Character, Boolean> entry : map.entrySet()){
+            if (entry.getValue().equals(true)) {
                 count++;
             }
         }
